@@ -1,0 +1,9 @@
+extends ../layouts/layout
+block content 
+    //- div= errorMessage
+    form(action="/authors", method="POST")
+        div 
+            include _formFields.pug
+        div 
+            a(href="/") Cancel 
+            button(type="submit") Create

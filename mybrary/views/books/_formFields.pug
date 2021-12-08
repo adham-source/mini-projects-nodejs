@@ -1,0 +1,49 @@
+div
+    label(for="title") Title 
+    input(
+        type="text",
+        name="title",
+        id="title"
+        value=book.title
+    )
+div 
+    label(for="author") Author 
+    select(name="author", id="author")
+        each author in authors 
+            if(author.id === book.author)
+                option(selected label=author.name, value=author.id)
+            else 
+                option(label=author.name, value=author.id)
+div 
+    label(for="publishDate") Publish date 
+    input(
+        type="date",
+        name="publishDate",
+        id="publishDate",
+        value=`${book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0]}`
+    )
+div 
+    label(for="pageCount") Page count
+    input(
+        type="number",
+        name="pageCount",
+        id="pageCount",
+        min="1",
+        value= book.pageCount
+    )
+div 
+    label(for="cover") Cover 
+    input(
+        type="file",
+        name="cover",
+        class="filepond",
+        id="cover"
+    )
+div
+    label(for="description") Description
+    textarea(
+        name="description",
+        id="description",
+        cols="30", 
+        rows="10",
+    )= book.description

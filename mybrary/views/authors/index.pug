@@ -1,0 +1,14 @@
+extends ../layouts/layout
+block content 
+    h2 search authors
+    form(action="/authors", method="GET") 
+        div 
+            lable Name 
+            input(type="text", name="name" value=`${searchOptions.name ? searchOptions.name: ''}`)/
+        div 
+            button(type="submit") Search
+    div 
+        each author in authors 
+            p= author.name
+        else 
+            p There are no authors

@@ -1,0 +1,6 @@
+extends layouts/layout 
+block content 
+   h2 Recently Added 
+   div 
+    each book in books 
+        img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
