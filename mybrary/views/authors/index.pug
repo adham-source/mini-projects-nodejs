@@ -10,5 +10,9 @@ block content
     div 
         each author in authors 
             p= author.name
+            a(href=`/authors/${author.id}`) View 
+            a(href=`/authors/${author.id}/edit`) Edit
+            include ../partials/deleteForm.pug
+            +deleteForm(`/authors/${author.id}`)
         else 
             p There are no authors

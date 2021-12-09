@@ -1,0 +1,10 @@
+h2=`${author.name}`
+a(href=`/authors/${author.id}/edit`) Edit 
+include ../partials/deleteForm.pug 
++deleteForm(`/authors/${author.id}`)
+
+div 
+    if  booksByAuthor 
+        h2 Books By Author 
+        each book in booksByAuthor 
+            img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")

@@ -5,6 +5,7 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const path = require('path')
 
 const indexRouter = require('./routes/index')
@@ -18,6 +19,7 @@ app.set('layout', '/layouts/layout')
 // app.set(express.static('public'))
 
 app.use(express.static(path.join(__dirname, 'public/')))
+app.use(methodOverride('_method'))
 
 app.use(bodyParser.urlencoded({limit: "10mb", extended: false}))
 
