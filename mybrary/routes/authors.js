@@ -39,6 +39,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+// Show author route
 router.get('/:id', async (req, res) => {
     try {
         const author = await Author.findById(req.params.id)

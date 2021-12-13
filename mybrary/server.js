@@ -13,10 +13,10 @@ const authorsRouter = require('./routes/authors')
 const booksRouter = require('./routes/books')
 
 
-app.set('view engine', 'pug') // app.set to used pug engine (ejs used app.use)
+app.set('view engine', 'pug') 
 app.set('views', __dirname + '/views')
 app.set('layout', '/layouts/layout')
-// app.set(express.static('public'))
+
 
 app.use(express.static(path.join(__dirname, 'public/')))
 app.use(methodOverride('_method'))
@@ -33,4 +33,4 @@ app.use('/', indexRouter)
 app.use('/authors', authorsRouter)
 app.use('/books', booksRouter)
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 3000)

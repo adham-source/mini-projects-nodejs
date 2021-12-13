@@ -1,3 +1,4 @@
+a(href="/authors") Back 
 h2=`${author.name}`
 a(href=`/authors/${author.id}/edit`) Edit 
 include ../partials/deleteForm.pug 
@@ -7,4 +8,5 @@ div
     if  booksByAuthor 
         h2 Books By Author 
         each book in booksByAuthor 
-            img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
+            a(href=`/books/${book.id}`) 
+                img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")

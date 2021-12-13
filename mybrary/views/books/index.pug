@@ -31,4 +31,5 @@ block content
             button(type="submit") Search
     div 
         each book in books 
-            img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
+            a(href=`/books/${book.id}`) 
+                img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
