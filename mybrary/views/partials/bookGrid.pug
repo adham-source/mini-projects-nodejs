@@ -1,0 +1,5 @@
+mixin bookGrid(books, large = false)
+    div(class=`book-grid ${large ? 'book-grid-large' : '' }`)
+        each book in books 
+            a(href=`/books/${book.id}`) 
+                img(src=`${book.coverImagePath}` class=`book-cover ${large ? 'book-cover-large' : '' }`)

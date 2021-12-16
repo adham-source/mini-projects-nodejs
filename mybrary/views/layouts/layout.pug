@@ -4,6 +4,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        
+        // Fonts
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap")
+
         // Files FilePond CDN
         link(rel="stylesheet", href="https://unpkg.com/filepond@^4/dist/filepond.css")
         link(rel="stylesheet", href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css")
@@ -16,8 +22,10 @@ html(lang="en")
         script(defer src="/assets/js/fileUpload.js") 
         title mybrary
     body
-        include ../partials/header.pug
-        include ../partials/errorMessage.pug
-        block content
+        .container 
+            .inner-container 
+                include ../partials/header.pug
+                include ../partials/errorMessage.pug
+                block content
 
         

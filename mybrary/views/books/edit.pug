@@ -4,6 +4,6 @@ block content
     form(action=`/books/${book.id}?_method=PUT`, method="POST")
         div 
             include _formFields.pug
-        div
-        a(href="/books") Cancel 
-        button(type="submit") Update
+        div(class="form-row-end btn-row")
+            a(href="/books", class="btn btn-danger") Cancel 
+            button(type="submit", class="btn btn-primary") Update

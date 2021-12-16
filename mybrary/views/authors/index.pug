@@ -2,17 +2,19 @@ extends ../layouts/layout
 block content 
     h2 search authors
     form(action="/authors", method="GET") 
-        div 
-            lable Name 
-            input(type="text", name="name" value=`${searchOptions.name ? searchOptions.name: ''}`)/
-        div 
-            button(type="submit") Search
-    div 
-        each author in authors 
-            p= author.name
-            a(href=`/authors/${author.id}`) View 
-            a(href=`/authors/${author.id}/edit`) Edit
-            include ../partials/deleteForm.pug
-            +deleteForm(`/authors/${author.id}`)
-        else 
-            p There are no authors
+        div(class="form-row") 
+            div(class="form-item")
+                label Name 
+                input(type="text", name="name" value=`${searchOptions.name ? searchOptions.name: ''}`)/
+        div(class="form-row form-row-end")
+            button(type="submit", class="btn btn-primary") Search
+    each author in authors 
+        div(class="author-row")
+            div(class="author-name")= author.name
+            div(class="btn-row")
+                a(href=`/authors/${author.id}`, class="btn btn-primary") View 
+                a(href=`/authors/${author.id}/edit`, class="btn btn-primary") Edit
+                include ../partials/deleteForm.pug
+                +deleteForm(`/authors/${author.id}`)
+    else 
+        p There are no authors

@@ -1,12 +1,15 @@
-a(href="/authors") Back 
-h2=`${author.name}`
-a(href=`/authors/${author.id}/edit`) Edit 
-include ../partials/deleteForm.pug 
-+deleteForm(`/authors/${author.id}`)
+extends ../layouts/layout
+block content 
+    h2=`${author.name}`
+    div(class="btn-row")
+        a(href=`/authors/${author.id}/edit`, class="btn btn-primary") Edit 
+        include ../partials/deleteForm.pug 
+        +deleteForm(`/authors/${author.id}`)
 
-div 
-    if  booksByAuthor 
-        h2 Books By Author 
-        each book in booksByAuthor 
-            a(href=`/books/${book.id}`) 
-                img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
+    div 
+        if booksByAuthor.length > 0
+            h2 Books By Author 
+            include ../partials/bookGrid.pug
+            +bookGrid(booksByAuthor, false)
+        else 
+            p There are no books for #{author.name}

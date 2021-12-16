@@ -1,9 +1,8 @@
 extends ../layouts/layout
 block content 
     h2 Edit Author
-    form(action=`/authors/${author.id}?_method=PUT`, method="POST")
-        div 
-            include _formFields.pug
-        div 
-            a(href=`/authors/${author.id}`) Cancel 
-            button(type="submit") Update
+    form(action=`/authors/${author.id}?_method=PUT`, method="POST") 
+        include _formFields.pug
+        div(class="form-row-end btn-row")
+            a(href=`/authors/${author.id}`, class="btn btn-danger") Cancel 
+            button(type="submit", class="btn btn-primary") Update

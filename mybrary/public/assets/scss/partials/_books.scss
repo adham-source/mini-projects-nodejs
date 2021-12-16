@@ -1,0 +1,59 @@
+@use '../abstracts' as *;
+:root {
+    // Width 
+    --book-cover-width: $book-cover-width;
+    --book-cover-width-large: $book-cover-width-large;
+    --book-cover-aspect-ratio: $book-cover-aspect-ratio;
+}
+
+.book-cover {
+    width: $book-cover-width;
+    height: calc($book-cover-width / $book-cover-aspect-ratio);
+    &-large {
+        width: $book-cover-width-large;
+    }
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, $book-cover-width);
+    // justify-content: center;
+    gap: 2rem;
+    &-large {
+        grid-template-columns: repeat(auto-fill, $book-cover-width-large);
+    }
+}
+
+.book-details {
+    display: flex;
+    gap: 2rem;
+    &-btn-grid {
+        display: grid;
+        grid-template-areas: 
+            "edit delete"
+            "author author"
+        ;
+        gap: .8rem;
+        margin-top: .5rem;
+    }
+    &-author-button {
+        grid-area: author;
+        justify-self: stretch;
+    }
+    &-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        align-content: flex-start;
+        gap: 1.5rem;
+    }
+    &-grid-label {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+    span {
+        @extend .book-details-grid-label;
+        font-weight: 400;
+    }
+}
+

@@ -1,7 +1,6 @@
 extends layouts/layout 
 block content 
-   h2 Recently Added 
-   div 
-    each book in books 
-        a(href=`/books/${book.id}`)
-            img(src=`${book.coverImagePath}`, alt=`${book.title}`, srcset="", height="150", width="100")
+    h2 Recently Added 
+  
+    include partials/bookGrid.pug
+    +bookGrid(books, true)

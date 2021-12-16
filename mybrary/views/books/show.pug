@@ -1,23 +1,26 @@
-a(href="/") Back 
-h2= book.title
-img(
-    width="100",
-    height="150",
-    src=`${book.coverImagePath}`
-    alt=`${book.title}`,
-    title=`${book.title}`
-)
-div 
-    | Author : #{book.author.name}
-div 
-    | Publish Date : #{book.publishDate.toDateString()}
-div 
-    | Page Count :  #{book.pageCount}
-if book.description
-    div 
-        | Description : #{book.description}
-
-a(href=`/books/${book.id}/edit`) Edit
-include ../partials/deleteForm.pug
-+deleteForm(`/books/${book.id}`)
-a(href=`/authors/${book.author.id}`) View Author  
+extends ../layouts/layout.pug 
+block content 
+    h2= book.title
+    div(class="book-details")
+        div 
+            img(
+                class="book-cover",
+                src=`${book.coverImagePath}`
+                alt=`${book.title}`,
+                title=`${book.title}`
+            )
+            div(class="book-details-btn-grid")
+                a(href=`/books/${book.id}/edit`, class="btn btn-primary") Edit
+                include ../partials/deleteForm.pug
+                +deleteForm(`/books/${book.id}`)
+                a(href=`/authors/${book.author.id}`, class="btn btn-primary book-details-author-button") View Author  
+        div(class="book-details-grid")
+            div(class="book-details-grid-label") Author : 
+            span() #{book.author.name}
+            div(class="book-details-grid-label") Publish Date : 
+            span() #{book.publishDate.toDateString()}
+            div(class="book-details-grid-label") Page Count :  
+            span() #{book.pageCount}
+            if book.description
+                div(class="book-details-grid-label") Description : 
+                span() #{book.description}

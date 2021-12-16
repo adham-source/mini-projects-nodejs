@@ -2,8 +2,7 @@ extends ../layouts/layout
 block content 
     h2 Add New Author
     form(action="/authors", method="POST")
-        div 
-            include _formFields.pug
-        div 
-            a(href="/") Cancel 
-            button(type="submit") Create
+        include _formFields.pug
+        div(class="form-row-end btn-row") 
+            a(href="/", class="btn btn-danger") Cancel 
+            button(type="submit", class="btn btn-primary") Create

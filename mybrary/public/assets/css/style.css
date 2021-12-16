@@ -1,0 +1,253 @@
+*, *::after, *::before {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #dbf3ff;
+  text-transform: capitalize;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 66.5%;
+}
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+body {
+  background: linear-gradient(to right, #001b29, #003652);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.inner-container {
+  margin: 0 2rem;
+}
+
+a {
+  font-size: 1.9rem;
+}
+a:hover {
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input, textarea {
+  text-transform: none;
+}
+
+.error-message {
+  color: #ff5500;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.btn {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.btn-primary {
+  color: #004466;
+  background: #a8e2ff;
+}
+.btn-primary:hover {
+  color: #002233;
+  background: #75d1ff;
+}
+
+.btn-danger {
+  color: black;
+  background: #ffc5a8;
+}
+.btn-danger:hover {
+  color: black;
+  background: #ffa375;
+}
+
+/**** Header ****/
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.header-nav ul {
+  display: flex;
+  gap: 0.9rem;
+}
+.header-logo {
+  color: #dbf3ff;
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+}
+.form-row-end {
+  justify-content: flex-end;
+}
+.form-row .form-item {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.form-row .form-item label {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+.form-row .form-item input, .form-row .form-item select, .form-row .form-item textarea {
+  height: 3.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #00aaff;
+  background: #00699e;
+  color: #dbf3ff;
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+.form-row .form-item input:focus, .form-row .form-item select:focus, .form-row .form-item textarea:focus {
+  border-color: #99ddff;
+}
+.form-row .form-item select option {
+  background: black;
+}
+.form-row .form-item textarea {
+  height: 100%;
+  resize: none;
+}
+.form-row .form-item-no-grow {
+  flex-grow: 0;
+}
+
+.filepond--root {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
+}
+
+.filepond--panel-root {
+  background: #00699e;
+  border: 1px solid #00aaff;
+}
+.filepond--panel-root-label {
+  color: #dbf3ff;
+  font-size: inherit;
+}
+
+.filepond--root .filepond--credits[style] {
+  display: none;
+}
+
+:root {
+  --book-cover-width: $book-cover-width;
+  --book-cover-width-large: $book-cover-width-large;
+  --book-cover-aspect-ratio: $book-cover-aspect-ratio;
+}
+
+.book-cover {
+  width: 200px;
+  height: 266.6666666667px;
+}
+.book-cover-large {
+  width: 325px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 2rem;
+}
+.book-grid-large {
+  grid-template-columns: repeat(auto-fill, 325px);
+}
+
+.book-details {
+  display: flex;
+  gap: 2rem;
+}
+.book-details-btn-grid {
+  display: grid;
+  grid-template-areas: "edit delete" "author author";
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+.book-details-author-button {
+  grid-area: author;
+  justify-self: stretch;
+}
+.book-details-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  align-content: flex-start;
+  gap: 1.5rem;
+}
+.book-details-grid-label, .book-details span {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.book-details span {
+  font-weight: 400;
+}
+
+.author-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+.author-row .author-name {
+  font-size: 1.7rem;
+}
+
+/*# sourceMappingURL=style.css.map */

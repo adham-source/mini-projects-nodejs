@@ -1,0 +1,64 @@
+@use '../abstracts' as *;
+
+.form-row {
+    display: flex;
+    gap: 2rem;
+    &-end {
+        justify-content: flex-end;
+    }
+    .form-item {
+        display: flex;
+        flex-flow: column;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+        flex-basis: 0;
+        label {
+           font-size: $form-label-font-size;
+           margin-bottom: .25rem;
+        }
+        input, select, textarea {
+            height: 3.5rem;
+            padding: .25rem .5rem;
+            border-radius: $border-radius;
+            border: 1px solid $form-input-border-color;
+            background: $form-input-background-color;
+            color: $color-text-light;
+            font-size: 1.3rem;
+            font-family: $main-font;
+            outline: none;
+            &:focus {
+                border-color: $form-input-border-color-light;
+            }
+        }
+        select {
+            option {
+                background: black;
+            }
+        }
+        textarea {
+            height: 100%;
+            resize: none;
+        }
+    }
+    .form-item-no-grow {
+        flex-grow: 0;
+    }
+}
+
+.filepond--root {
+    font-family: $main-font;
+    margin-bottom: 0;
+}
+
+.filepond--panel-root {
+    background: $form-input-background-color;
+    border: 1px solid $form-input-border-color;
+    &-label {
+        color: $color-text-light;
+        font-size: inherit;
+    }
+}
+
+.filepond--root .filepond--credits[style] {
+    display: none;
+}

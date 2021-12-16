@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+/**** Header ****/
+.header {
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 3rem;
+        ul {
+            display: flex;
+            gap: .9rem;
+        }
+    }
+    &-logo {
+        color: $color-text-light;
+        font-size: $nav-logo-font-size;
+        font-weight: $nav-logo-font-weight;
+    }
+}

@@ -2,34 +2,33 @@ extends ../layouts/layout.pug
 block content 
     h2 Search Book
     form(action="/books", method="GET")
-        div 
-            label(for="Tilte") Title 
-            input(
-                type="text",
-                name="title",
-                id="title",
-                value= searchOptions.title 
-            )
-        div 
-            label(for="publishedAfter") Published After 
-            input(
-                type="date",
-                name="publishedAfter",
-                id="publishedAfter",
-                value= searchOptions.publishedAfter
-            )
-        div 
-            label(for="publishedBefore") Published Before 
-            input(
-                type="date",
-                name="publishedBefore",
-                id="publishedBefore",
-                value= searchOptions.publishedBefore 
-            )
-       
-        div 
-            button(type="submit") Search
-    div 
-        each book in books 
-            a(href=`/books/${book.id}`) 
-                img(src=`${book.coverImagePath}`, alt="", srcset="", height="150", width="100")
+        div(class="form-row")
+            div(class="form-item")
+                label(for="Tilte") Title 
+                input(
+                    type="text",
+                    name="title",
+                    id="title",
+                    value= searchOptions.title 
+                )
+        div(class="form-row")
+            div(class="form-item") 
+                label(for="publishedAfter") Published After 
+                input(
+                    type="date",
+                    name="publishedAfter",
+                    id="publishedAfter",
+                    value= searchOptions.publishedAfter
+                )
+            div(class="form-item") 
+                label(for="publishedBefore") Published Before 
+                input(
+                    type="date",
+                    name="publishedBefore",
+                    id="publishedBefore",
+                    value= searchOptions.publishedBefore 
+                )
+        div(class="form-row form-row-end")
+            button(type="submit", class="btn btn-primary") Search
+    include ../partials/bookGrid.pug
+    +bookGrid(books, false)
