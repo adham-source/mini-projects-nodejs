@@ -1,0 +1,45 @@
+# Home page index
+GET http://localhost:3000
+
+### Admin Page
+GET http://localhost:3000/admin
+Content-Type: application/json
+
+{
+    "userId": 1
+}
+
+### Dashboard Page
+GET http://localhost:3000/dashboard
+
+### Get users
+GET http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "userId": 1
+} 
+
+### Get projects
+GET http://localhost:3000/projects
+Content-Type: application/json
+
+{
+    "userId": 2
+}
+
+### Get project
+GET http://localhost:3000/projects/2
+Content-Type: application/json
+
+{
+    "userId": 2
+}
+
+### DELETE project
+DELETE http://localhost:3000/projects/2
+Content-Type: application/json
+
+{
+    "userId": 2
+}
