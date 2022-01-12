@@ -1,6 +1,6 @@
 // import cors from "cors"
 import consola from "consola"
-import express, { application } from "express"
+import express from "express"
 import mongoose from "mongoose"
 import { json } from "body-parser"
 
