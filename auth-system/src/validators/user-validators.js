@@ -1,9 +1,28 @@
 import { check } from "express-validator"
 
-const name = check("name", "Name is required .").not().isEmpty()
-const username = check("username", "Username is required .").not().isEmpty()
-const email = check("email", "Please provide a valid email address").isEmail()
-const password = check("password", "Password is required of minimum length of 6 .").not().isLength({min: 6})
+const name = check("name", "Name is required .")
+  .not()
+  .isEmpty()
+  .trim()
+  .escape()
+  .isString()
+const username = check("username", "Username is required .")
+  .not()
+  .isEmpty()
+  .trim()
+  .escape()
+  .isString()
+const email = check("email", "Please provide a valid email address")
+  .isEmail()
+  .trim()
+  .escape()
+const password = check(
+  "password",
+  "Password is required of minimum length of 8 ."
+)
+  .isLength({ min: 8 })
+  .trim()
+  .escape()
 
 export const RegisterValidations = [name, username, email, password]
-export const AuthenteValidations = [username, password]
+export const AuthenticateValidations = [username, password]
