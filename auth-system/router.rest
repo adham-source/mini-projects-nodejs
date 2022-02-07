@@ -1,11 +1,11 @@
-### Create new user
+### Create new user <register>
 POST http://localhost:3000/users/register
 Content-Type: application/json
 
 {
-    "username": "asmaa mohammed",
-    "name": "asmaa",
-    "email": "asmaashriet11@gmail.com",
+    "username": "adham ahmad",
+    "name": "adham",
+    "email": "adham.os1988@gmail.com",
     "password": "1234567890"
 }
 
@@ -14,6 +14,10 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "username": "played played",
-    "password": "123456789"
+    "username": "adham ahmad",
+    "password": "1234567890"
 }
+
+### Loged in and show user info
+GET http://localhost:3000/users/login
+Authorization: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmIxYjAzZjhkNDFmZTBmYTk2NDk1NSIsIm5hbWUiOiJhZGhhbSIsInVzZXJuYW1lIjoiYWRoYW0gYWhtYWQiLCJlbWFpbCI6ImFkaGFtLm9zMTk4OEBnbWFpbC5jb20iLCJpYXQiOjE2NDQxNjg1MzAsImV4cCI6MTY0NDI1NDkzMH0._AYL9KpaRKNCSMipUSu-4ib29h6dhugXXx4c3VtjAgE

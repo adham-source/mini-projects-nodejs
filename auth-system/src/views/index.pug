@@ -1,0 +1,6 @@
+extends ./layouts/layout 
+block content 
+    each user in users
+        p #{user.name}
+        p #{user.verified ? "true" : "false" }
+        p #{user.verificationCode ? user.verificationCode : "verifiyed" }

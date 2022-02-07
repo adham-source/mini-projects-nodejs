@@ -5,6 +5,7 @@ import { DOMIN } from "../constants"
 import sendEmail from "../controllers/email-sender"
 import { RegisterValidations, AuthenticateValidations } from "../validators"
 import Validator from "../middlewares/validator-middleware"
+import { userAuth } from "../middlewares/auth-guard"
 
 const router = Router()
 
@@ -84,11 +85,15 @@ router.get("/verify-now/:verificationCode", async (req, res) => {
     user.verified = true
     user.verificationCode = undefined
     await user.save()
-    return res.render("templates/verification-success", {
+    return res.render("templates/verification", {
       title: "verify success",
+      message: "Your account is now verified .",
     })
   } catch (err) {
-    return res.render("templates/verification-error", { title: "verify error" })
+    return res.render("templates/verification", {
+      title: "verify error",
+      message: "An error occurred .",
+    })
   }
 })
 
@@ -101,11 +106,17 @@ router.get("/verify-now/:verificationCode", async (req, res) => {
 
 router.post("/login", AuthenticateValidations, Validator, async (req, res) => {
   let { username, password } = req.body
-  let user = await User.findOne({ username })
+  let user = await User.findOne({ username }) // I wan't check , verified: true || false and check email !!!???
   if (!user)
     return res.status(401).json({
       success: false,
       message: "Check username or password !", // Correct msg = Check username or password!
+    })
+  // true or false user.verified ????!!!
+  if (!user.verified)
+    return res.status(401).json({
+      success: false,
+      message: "Check your mail to verifiy account !",
     })
   if (!(await user.comparePassword(password)))
     return res.status(401).json({
@@ -116,16 +127,30 @@ router.post("/login", AuthenticateValidations, Validator, async (req, res) => {
   try {
     return res.json({
       success: true,
-      user: user.getUserInfo(),
+      user: user.getUserInfo(), // Whay get information user ???!!!
       token: `Bearer ${token}`,
       message: "Hurray! You are now logged in .",
     })
   } catch (err) {
-    return res.status(500).json({
+    return res.status(400).json({
       success: false,
       message: "An error occurred",
     })
   }
+})
+
+/**
+ * @description To get the authenticated user's profile
+ * @api /users/login
+ * @access Private
+ * @type GET
+ */
+router.get("/login", userAuth, (req, res) => {
+  return res.json({
+    success: true,
+    user: req.user,
+    message: "Logged in!",
+  })
 })
 
 export default router

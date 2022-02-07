@@ -25,4 +25,4 @@ const password = check(
   .escape()
 
 export const RegisterValidations = [name, username, email, password]
-export const AuthenticateValidations = [username, password]
+export const AuthenticateValidations = [username, password] // I want to add email ..
